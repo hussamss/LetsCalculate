@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html ng-app="CalculatorApp">
+<!-- above we define the application and initizie some data -->
+<head>
+  <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+  <style type="text/css">
+  
+  </style>
+</head>
+<body ng-controller="controlCal">
+
+
+<!-- Head of the page -->
+  <div class="top-bar-right">
+    <ul class="menu menu-desktop">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+
+
+<!-- Main Content of the page -->
+
+  <section class="row">
+    <div class="columns large-10 large-offset-2 medium-6 medium-offset-2 small-12">
+      <label>{{processed}} = </label><input type="text" ng-model="enteredOper" name="">
+      <p>Your entered: {{enteredOper}}</p>
+      <p> <span> {{ otherRes}}</span></p>
+    
+      
+      
+      <br>
+      <button class="button large operful" ng-click="floor()"  value="floor(">floor</button>
+      <button class="button large operful" ng-click="ceil()" value="">ceil</button>
+      <button class="button large operful" ng-click="round()"  value="1">round</button>
+      <button class="button large operful" ng-click="random()" value="">rand</button>
+      <button class="button large operful" ng-click="roundBracketOpen()"  value="(">(</button>
+      <button class="button large operful" ng-click="roundBracketClose()" value=")">)</button>
+      <button class="button large operful" ng-click="clear()" value="">clear</button>
+      <button class="button large operful" ng-click="doAdd()" value="">+/-</button>
+      <button class="button large operful" ng-click="doModulo()" value="">%</button>
+      <button class="button large operful" ng-click="doSub()" value="">-</button>
+
+
+      <br>
+      <button class="button large operful" ng-click="doSqur()"  value="1">X^2</button>
+      <button class="button large operful" ng-click="doPow()" value="">x^y</button>
+      <button class="button large operful" ng-click="doE()" value="">e</button>
+      <button class="button large operful" ng-click="do10Exp()"  value="1">10^x</button>
+      <button class="button large operful" ng-click="squareBracketOpen()" value="">[</button>
+      <button class="button large operful" ng-click="squareBracketClose()"  value="1">]</button>
+      <button class="button large operful" ng-click="doFollowing(1)"  value="1">1</button>
+      <button class="button large operful" ng-click="doFollowing(2)" value="">2</button>
+      <button class="button large operful" ng-click="doFollowing(3)" value="">3</button>
+      <button class="button large operful" ng-click="doAdd()" value="">+</button>
+      <br>
+      <button class="button large operful" ng-click="inv()" value="">inv()</button>
+      <button class="button large operful" ng-click="factorial()" value="">!</button>
+      <button class="button large operful" ng-click="sin()"  value="1">sin</button>
+      <button class="button large operful" ng-click="cos()" value="">cos</button>
+      <button class="button large operful" ng-click="tan()"  value="1">tan</button>
+      <button class="button large operful" ng-click="cot()" value="">cot</button>
+      <button class="button large operful" ng-click="doFollowing(4)" value="">4</button>
+      <button class="button large operful" ng-click="doFollowing(5)" value="">5</button>
+      <button class="button large operful" ng-click="doFollowing(4)" value="">4</button>
+      
+      <button class="button large operful" ng-click="doSub()" value="">-</button>
+      <br>
+      <button class="button large operful" ng-click="sinh()"  value="1">sinh</button>
+      <button class="button large operful" ng-click="cosh()" value="">cosh</button>
+      <button class="button large operful" ng-click="tanh()"  value="1">tanh</button>
+      <button class="button large operful" ng-click="coth()" value="">coth</button>
+      <button class="button large operful" ng-click="PiValue()"  value="1">pi</button>
+      <button class="button large operful" ng-click="dotProduct()" value="">.*</button>
+      <button class="button large operful" ng-click="doFollowing(7)" value="">7</button>
+      <button class="button large operful" ng-click="doFollowing(8)" value="">8</button>
+      <button class="button large operful" ng-click="doFollowing(9)" value="">9</button>
+      <button class="button large operful" ng-click="doMul()" value="">x</button>
+      <br>
+      <button class="button large operful" ng-click="ln()"  value="1">ln</button>
+      <button class="button large operful" ng-click="log()" value="">log</button>
+      <button class="button large operful" ng-click="exp()"  value="1">e</button>
+      <button class="button large operful" ng-click="doFollowing(2)" value="">2</button>
+      <button class="button large operful" ng-click="doFollowing(',')" value="">,</button>
+      <button class="button large operful" ng-click="doFollowing('.')" value="">.</button>
+      <button class="button large operful" ng-click="click()">=</button>
+      <button class="button large operful" ng-click="doDiv()" value="">/</button>
+      <button class="button large operful" ng-click="click()">=</button>
+      <button class="button large operful" ng-click="click()">=</button>
+      <br>
+      
+      <p> your operation: {{operation}}</p>
+      
+      <p>The other results : {{otherRes}}</p>
+
+    </div>
+    
+
+  </section>
+
+
+
+
+
+
+ <!-- Footer of the page -->
+ <div></div>
+
+  <!-- a link to angularJS CDN  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/vendor/what-input.js"></script>
+  <script src="js/vendor/foundation.js"></script>
+  <script src="js/vendor/foundation.min.js"></script>
+  <!-- <script src="js/app.js"></script> -->
+  <script type="text/javascript" src="functions.js"></script>
+</body>
+</html>
